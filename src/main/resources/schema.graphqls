@@ -1,0 +1,28 @@
+schema {
+    query: QueryType
+}
+
+type QueryType {
+    user(id: String): User
+    licence(id: String): Licence
+}
+
+type User {
+    id: String!
+    isMyFTUser: Boolean
+    isActive: Boolean
+    rfvScore: Float
+}
+
+type Licence {
+    id: String!
+    users: [User]
+    contracts: [Contract]
+}
+
+type Contract {
+    contractId : String!
+    activeUsers: Int
+    inactiveUsers: Int
+    assignedReader: Int
+}
